@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코딩네컷</title>
+    <style>
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        font-family: "LeeSeoyun";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-image: url("./background.png");
+      }
+      .container{
+        width: 390px;
+        background-color:#ff9d73;
+        height:100%;
+       }
+
+       .photos{
+         margin-top:30px;
+       }
+
+       .photo-frame{
+        background-color:white;
+        margin: 15px 20px;
+        height:200px;
+        cursor: pointer;
+
+        background-size:cover;
+        position : relative;
+       }
+
+       .footer{
+       display: flex;
+       flex-direction: column;
+       align-items:center;
+       }
+
+       .f-title{
+        color:white;
+        font-size:25px;
+        font-weight:900;
+       }
+
+       .f-date{
+       color:white;
+       font-size:15px;
+       font-weight:500;
+       }
+
+       #image1{
+       background-image: url("./lulu1.jpg");
+       }
+
+       #image2{
+       background-image: url("./lulu2.jpg");
+       }
+
+       #image3{
+       background-image: url("./lulu3.jpg");
+       }
+
+       #image4{
+       background-image: url("./lulu4.jpg");
+       }
+
+       .photo_description{
+       color:white;
+       background-color:black;
+
+       width: fit-content;
+       padding:0 20px;
+       margin-bottom: 10px;
+       border-radius: 10px;
+       position: absolute;
+       bottom: 0;
+
+       transform: translate(-50%);
+       left: 50%;
+       opacity:0;
+       }
+
+       .showText{
+        opacity:1;
+       }
+
+       .hideText{
+        opacity: 0;
+        transition: opacity 0.5s linear;
+       }
+
+		</style>
+    <script>
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            }
+            else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            }
+            else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            }
+            else {
+                document.querySelector("#desc4").classList.remove("hideText");
+                document.querySelector("#desc4").classList.add("showText");
+            }
+        }
+
+        function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                document.querySelector("#desc1").classList.add("hideText");
+            }
+            else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("showText");
+                document.querySelector("#desc2").classList.add("hideText");
+            }
+            else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            }
+            else {
+                document.querySelector("#desc4").classList.remove("showText");
+                document.querySelector("#desc4").classList.add("hideText");
+            }
+        }
+
+        function alertText(number) {
+	            alert(`${number}번째 루루예요! 간식을 주세요:)`);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="photos">
+        <div id="image1" class="photo-frame"
+        onmouseover="hideText(1)"
+        onmouseout="showText(1)"
+        onclick="alertText(1)"
+        >
+            <span id="desc1" class="photo_description">
+                멍때리는 루루..
+            </span>
+        </div>
+
+        <div id="image2" class="photo-frame"
+             onmouseover="hideText(2)"
+             onmouseout="showText(2)"
+             onclick="alertText(2)"
+        >
+            <span id="desc2" class="photo_description">
+                쳐다보는 루루..
+            </span>
+        </div>
+
+        <div id="image3" class="photo-frame"
+             onmouseover="hideText(3)"
+             onmouseout="showText(3)"
+             onclick="alertText(3)"
+        >
+            <span id="desc3" class="photo_description">
+                궁금한 루루..
+            </span>
+        </div>
+
+        <div id="image4" class="photo-frame"
+             onmouseover="hideText(4)"
+             onmouseout="showText(4)"
+             onclick="alertText(4)"
+        >
+            <span id="desc4" class="photo_description">
+                귀여운 루루..
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="f-title">Have a good day</p>
+        <p class="f-date">2023.03.14</p>
+    </div>
+</div>
+</body>
+</html>
